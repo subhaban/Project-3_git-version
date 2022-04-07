@@ -49,6 +49,7 @@ vid.volume = 0.5;
     // make the select list control what video format to play
     selectList.addEventListener("change", (e) => {
         selectVideo(e, vid);
+        vid.play();
         
     });
     
@@ -59,8 +60,8 @@ vid.volume = 0.5;
  const  playbtn = document.querySelector('#playbtn');
  const  pausebtn = document.querySelector('#pausebtn');
  const  mutebtn = document.querySelector('#mutebtn');
- const  ccbtn = document.querySelector('#ccbtn');
- const  seekinfobtn = document.querySelector('#seekinfobtn');
+ //const  ccbtn = document.querySelector('#ccbtn');
+// const  seekinfobtn = document.querySelector('#seekinfobtn');
  const  stopbtn = document.querySelector('#stopbtn');
  const  beginbtn = document.querySelector('#beginbtn');
  let  muteimg = document.querySelector('.img_unmute');
@@ -75,6 +76,7 @@ vid.volume = 0.5;
     let title = document.querySelector(".title");
     let img = document.querySelector(".thumbnail");
     const info = document.querySelector("#info");
+    const col = document.querySelector(".col2");
    
 
  
@@ -118,13 +120,13 @@ beginbtn.addEventListener('click', (e) => {
       
 });
 
-seekinfobtn.addEventListener('click', (e) => {
-    funcwrapup();
-    playimg.src="images/btn_playwt100.png";
-    pauseimg.src="images/btn_pause100.png";
+//seekinfobtn.addEventListener('click', (e) => {
+   // funcwrapup();
+   // playimg.src="images/btn_playwt100.png";
+   // pauseimg.src="images/btn_pause100.png";
       
     
-});
+//});
 
 
 //the custom callback functions to trigger when a cuepoint is hit.
@@ -170,7 +172,10 @@ function cinnafacts() {
 }
 
 function imageshow() {
+
     const web = document.querySelector("#web");
+    const col = document.querySelector(".col2");
+    col.classList.add('size');
     web.src ="images/differentspices.jpg";
     pop.classList.add("hide");
    
@@ -193,12 +198,14 @@ function turmeric() {
 function rosemary() {
     title.innerHTML ="ROSEMARY";
     img.src = "images/rosemerry.png";
+   
     web.src="https://www.allrecipes.com/recipes/1072/ingredients/herbs-and-spices/herbs/rosemary/";
     pop.classList.remove("hide");
 }
 
 function thymme() {
     title.innerHTML ="THYMME";
+    col.classList.remove('size');
     img.src = "images/thymme.png";
     web.src="https://www.acouplecooks.com/thyme-recipes/";
     pop.classList.remove("hide");
