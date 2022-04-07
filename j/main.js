@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const selectList = document.querySelector("#video_select");
 
 //to load the video and start volume at 50%.
-vid.src="assets/RichMedia.mp4";
+vid.src="assets/Richmedia.mp4";
 vid.load();
 vid.volume = 0.5;
 
