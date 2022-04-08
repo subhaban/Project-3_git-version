@@ -39,6 +39,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
     //shortcut variables
     const vid = document.querySelector("#vid");
     const selectList = document.querySelector("#video_select");
+    const selectText = document.querySelector("#text-track");
+    const display =document.getElementById("transcript");
+    const transcript_en = document.getElementById("transcript-en");
+    const transcript_es = document.getElementById("transcript-es");
+
 
 //to load the video and start volume at 50%.
 vid.src="assets/Spices.mp4";
@@ -47,13 +52,49 @@ vid.volume = 0.5;
 
 
     // make the select list control what video format to play
-    selectList.addEventListener("change", (e) => {
+    selectVid.addEventListener("change", (e) => {
         selectVideo(e, vid);
-       
-        
     });
     
+
+
+selectTrack.addEventListner("change", (e) => {
+ const id =  e.target.value;
+ selectTrack(e, vid, id);
+
 });
+
+transcript_en.addEventListener(
+    "click",
+    function (e) {
+        e.preventDefault();
+        webvttTranscript("captions/spices.vtt", display);
+    });
+
+transcript_es.addEventListener(
+    "click",
+    function (e) {
+        e.preventDefault();
+        webvttTranscript("subtitles/spanish.vtt", display);
+    });
+
+
+
+showHide.addEventListener(
+    "click",
+    function (e) {
+        e.preventDefault();
+        webvttTranscript("subtitles/french.vtt", display);
+        if (e.target.innerHTML == "Show Transcript") {
+            e.target.innerHTML = "Hide Transcript";
+            display.style.display = "block";
+        } else {
+            e.target.innerHTML = "Show Transcript";
+            display.style.display = "none";
+        }
+    });
+});
+
 
 // short cut variables for buttons
  
@@ -75,7 +116,7 @@ vid.volume = 0.5;
     let pop = document.querySelector(".pop");
     let title = document.querySelector(".title");
     let img = document.querySelector(".thumbnail");
-    const info = document.querySelector("#info");
+    //const info = document.querySelector("#info");
     const col = document.querySelector(".col2");
    
 
@@ -87,22 +128,18 @@ vid.volume = 0.5;
     vid.play();
      playimg.src="images/btn_playred100.png";
      pauseimg.src="images/btn_pause100.png";
-    
 });
  
  pausebtn.addEventListener('click', (e) => {
       vid.pause();
       pauseimg.src="images/btn_pausered100.png";
-      playimg.src="images/btn_playwt100.png";
-      
-      
+      playimg.src="images/btn_playwt100.png";      
  });
  
     mutebtn.addEventListener('click', (e)=> {
         vidMute();
         playimg.src="images/btn_playwt100.png";
         pauseimg.src="images/btn_pause100.png";
-      
         
       });
 
@@ -142,18 +179,7 @@ ccbtn.addEventListener('click', (e) => {
 //You can code up whatever behavior you need in your own callbacks
 //feel free to rename the functions to be more descriptive of what they do.
 
-/*function vidPause(){
-    if(vid.pause() = true){
-        vid.play();
-        pauseimg.src = "images/btn_pause100.png.png";
-        
-    } else {
-        vid.pause();
-        pauseimg.src = "images/btn_pausered100.png";
-       
-    }
 
-}*/
 
 function vidMute(){
     if(vid.muted){
@@ -261,7 +287,7 @@ function funcwrapup() {
 }
 function cinnaorigin(){
 vid.pause();
- web.src="assets/cinamonhistory.mp4";
+ web.src="assets/cinamonstory.mp4";
 vid.load();
 vid.volume = 0.5;
 

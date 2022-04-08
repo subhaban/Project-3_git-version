@@ -15,7 +15,7 @@
 <body>
 	<h1>Project 3 Rich Media Player</h1>
 
-	
+
 
 	<main id="container">
 
@@ -27,8 +27,8 @@
 				<source src="assets/Spices.mp4" id="spices" type="video/mp4">
 				<source src="assets/Spices.webm" id="spicesweb" type="video/mp4">
 				<source src="assets/Cinnamonstory.mp4" id="cinamon" type="video/mp4">
-				
-				<track id="en" kind="captions" label="On" srclang="en" src="./captions/spices.vtt" default>
+
+				<track id="en" kind="captions" label="English (Captions)" srclang="en" src="./captions/spices.vtt" default>
 
 				<!-- final fallback to text -->
 				<h2>Spices and its benefits</h2>
@@ -83,23 +83,26 @@
 					new study from Rush University Medical Center finds that cinnamon can actually reverse the
 					anatomical changes that occur in brain of mice.
 
-
-
 				</p>
 			</video>
 
 
 			<div class="controls">
 
-				<button type="image" id="playbtn" class="btn"><img src="images/btn_playwt100.png" class="img_btn img_play"></button>
-				<button type="image" id="pausebtn" class="btn"><img src="images/btn_pause100.png" class="img_btn img_pause"></button>			
-				<button type="image" id="mutebtn" class="btn"><img src="images/btn_unmute100.png" class="img_unmute img_btn"></button>
-				<button type="image" id="stopbtn" class="btn"><img src="images/btn_stop100.png" class="img_btn"></button>
-				<button type="image" id="beginbtn" class="btn"><img src="images/btn_begin100.png" class="img_btn"></button>
-				<button type="image" id="ccbtn"  class="btn"><img src="images/btn_cc_100.png" class="img_btn"></button>
-				
+				<button type="image" id="playbtn" class="btn"><img src="images/btn_playwt100.png"
+						class="img_btn img_play"></button>
+				<button type="image" id="pausebtn" class="btn"><img src="images/btn_pause100.png"
+						class="img_btn img_pause"></button>
+				<button type="image" id="mutebtn" class="btn"><img src="images/btn_unmute100.png"
+						class="img_unmute img_btn"></button>
+				<button type="image" id="stopbtn" class="btn"><img src="images/btn_stop100.png"
+						class="img_btn"></button>
+				<button type="image" id="beginbtn" class="btn"><img src="images/btn_begin100.png"
+						class="img_btn"></button>
+				<button type="image" id="ccbtn" class="btn"><img src="images/btn_cc_100.png" class="img_btn"></button>
+
 				<!--<button type="image" id="seekinfobtn" class="btn"><img src="images/btn_playred100.png"></button>-->
-				
+
 
 			</div>
 
@@ -107,17 +110,32 @@
 				<select id="video_select">
 					<option>Select a video to play...</option>
 					<option value="assets/Spices.mp4">Spices and Health</option>
+					<option value="assets/Spices.webm">Spices and health</option>
 					<option value="assets/Cinnamonstory.mp4">Origin Of Cinnamon</option>
-					
+
 				</select>
 			</div>
+			<div>
+				<select id="text-track" class="transcript_lan">
+					<option>Select a subtitle language...</option>
+					<option value="en">English</opttion>
+					<option value="fr">French</option>
 
+				</select>
+			</div>
 
 
 			<div class="pop hide">
 				<img class="thumbnail" src="">
 				<p class="title"></p>
 
+			</div>
+
+			<div class="show-captions">
+				<h3><a id="show-hide" href="#">Show Transcript</a></h3>
+				<a id="transcript-en" href="#">English</a>
+				<a id="transcript-fr" href="#">French</a>
+				<div id="transcript"></div>
 			</div>
 		</section>
 
@@ -127,10 +145,10 @@
 			</iframe>
 
 		</section>
-		
+
 
 	</main>
-	
+
 </body>
 
 </html>
