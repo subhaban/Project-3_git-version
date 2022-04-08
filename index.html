@@ -6,6 +6,8 @@
 	<meta charset="utf-8">
 
 	<link rel="stylesheet" href="c/main.css">
+	<script src="j/video_helpers.js" defer></script>
+	<script src="j/transcript.js" defer></script>
 	<script type="module" src="j/main.js" defer></script>
 
 </head>
@@ -22,10 +24,11 @@
 			<video id="vid" width="350" controls>
 
 
-				<source src="assets/Richmedia.mp4" id="spices" type="video/mp4">
-				<source src="assets/cookingchicken.mp4" id="cooking" type="video/mp4">
-				<source src="assets/OriginofCinnamon.mp4" id="cinnamon" type="video/mp4">
-				<track kind="captions" label="On" srclang="en" src="./captions/spices.vtt" default>
+				<source src="assets/Spices.mp4" id="spices" type="video/mp4">
+				<source src="assets/Spices.webm" id="spicesweb" type="video/mp4">
+				<source src="assets/Cinnamonstory.mp4" id="cinamon" type="video/mp4">
+				
+				<track id="en" kind="captions" label="On" srclang="en" src="./captions/spices.vtt" default>
 
 				<!-- final fallback to text -->
 				<h2>Spices and its benefits</h2>
@@ -103,10 +106,9 @@
 			<div class="selectbtn">
 				<select id="video_select">
 					<option>Select a video to play...</option>
-					<option value="assets/Richmedia.mp4">Spices and Health</option>
-					<option value="assets/OriginofCinnamon.mp4">Origin of Spices</option>
-					<option value="assets/cookingchicken.mp4">Cooking chicken</option>
-
+					<option value="assets/Spices.mp4">Spices and Health</option>
+					<option value="assets/Cinnamonstory.mp4">Origin Of Cinnamon</option>
+					
 				</select>
 			</div>
 
@@ -128,13 +130,7 @@
 		
 
 	</main>
-	<!--<article class="col3">
-		<iframe id="info" src="">
-
-		</iframe>
-
-	</section>-->
-
+	
 </body>
 
 </html>

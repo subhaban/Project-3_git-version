@@ -21,12 +21,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
         { seconds: 18, callback: cinnamon },
         { seconds: 22, callback: cinnafacts },
         { seconds: 60, callback: imageshow },
-        { seconds: 47, callback: cinnaorigin },
-        { seconds: 49, callback: turmeric },
+        { seconds: 49, callback: cinnaorigin },
+        { seconds: 60, callback: turmeric },
         { seconds: 70, callback: rosemary },
         { seconds: 90, callback: thymme },
         { seconds: 115, callback: ginger },
-        { seconds: 135, callback: chilli },
+        { seconds: 137, callback: chilli },
         { seconds: 168, callback: funcwrapup },
         { seconds: 178, callback: quizlet }
     ];
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const selectList = document.querySelector("#video_select");
 
 //to load the video and start volume at 50%.
-vid.src="assets/Richmedia.mp4";
+vid.src="assets/Spices.mp4";
 vid.load();
 vid.volume = 0.5;
 
@@ -49,7 +49,7 @@ vid.volume = 0.5;
     // make the select list control what video format to play
     selectList.addEventListener("change", (e) => {
         selectVideo(e, vid);
-        vid.play();
+       
         
     });
     
@@ -60,7 +60,7 @@ vid.volume = 0.5;
  const  playbtn = document.querySelector('#playbtn');
  const  pausebtn = document.querySelector('#pausebtn');
  const  mutebtn = document.querySelector('#mutebtn');
- //const  ccbtn = document.querySelector('#ccbtn');
+ const  ccbtn = document.querySelector('#ccbtn');
 // const  seekinfobtn = document.querySelector('#seekinfobtn');
  const  stopbtn = document.querySelector('#stopbtn');
  const  beginbtn = document.querySelector('#beginbtn');
@@ -84,9 +84,10 @@ vid.volume = 0.5;
 
 //action added to buttons
  playbtn.addEventListener('click', (e) => {
+    vid.play();
      playimg.src="images/btn_playred100.png";
      pauseimg.src="images/btn_pause100.png";
-    vid.play();
+    
 });
  
  pausebtn.addEventListener('click', (e) => {
@@ -94,10 +95,11 @@ vid.volume = 0.5;
       pauseimg.src="images/btn_pausered100.png";
       playimg.src="images/btn_playwt100.png";
       
+      
  });
  
     mutebtn.addEventListener('click', (e)=> {
-        vidmute();
+        vidMute();
         playimg.src="images/btn_playwt100.png";
         pauseimg.src="images/btn_pause100.png";
       
@@ -106,7 +108,7 @@ vid.volume = 0.5;
 
         
 stopbtn.addEventListener('click', (e) => {
-   vid.play.pause();
+   vid.pause();
    vid.currentTime = 0;
    playimg.src="images/btn_playwt100.png";
    pauseimg.src="images/btn_pause100.png";
@@ -127,12 +129,33 @@ beginbtn.addEventListener('click', (e) => {
       
     
 //});
-
+ccbtn.addEventListener('click', (e) => {
+    vid.pause();
+    vid.currentTime = 0;
+    playimg.src="images/btn_playwt100.png";
+    pauseimg.src="images/btn_pause100.png";
+       
+ });
+ 
 
 //the custom callback functions to trigger when a cuepoint is hit.
 //You can code up whatever behavior you need in your own callbacks
 //feel free to rename the functions to be more descriptive of what they do.
-function vidmute(){
+
+/*function vidPause(){
+    if(vid.pause() = true){
+        vid.play();
+        pauseimg.src = "images/btn_pause100.png.png";
+        
+    } else {
+        vid.pause();
+        pauseimg.src = "images/btn_pausered100.png";
+       
+    }
+
+}*/
+
+function vidMute(){
     if(vid.muted){
         vid.muted = false;
         muteimg.src = "images/btn_unmute100.png";
@@ -237,8 +260,8 @@ function funcwrapup() {
 
 }
 function cinnaorigin(){
- vid.pause();
- info.src="assets/originofCinnamon.mp4";
+vid.pause();
+ web.src="assets/cinamonhistory.mp4";
 vid.load();
 vid.volume = 0.5;
 
